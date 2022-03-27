@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".doctor.manage_dates"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="البطاقة الصحية"
+            android:textColor="@color/white"
+            android:background="@color/color1"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:id="@+id/button_show_card"
+            >
+        </androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="عرض تفاصيل الموعد "
+            android:textColor="@color/white"
+            android:background="@color/color1"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_below="@id/button_show_card"
+            android:id="@+id/button_show_dates_data"
+            >
+        </androidx.appcompat.widget.AppCompatButton>
+    </RelativeLayout>
+</FrameLayout>

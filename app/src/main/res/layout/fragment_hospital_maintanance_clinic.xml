@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hospital.hospital_maintanance_clinic"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" اسم العياده"
+        android:textSize="18dp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        >
+    </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_shaps"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:hint="اسم العياده"
+            android:textColorHint="@color/black"
+            >
+        </EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="حذف"
+                android:layout_margin="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:background="@color/color1"
+                android:layout_weight="1"
+                >
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="تعديل"
+                android:textSize="18dp"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:background="@color/color1"
+                android:layout_weight="1"
+                >
+            </androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

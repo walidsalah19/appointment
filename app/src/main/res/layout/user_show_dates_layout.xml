@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:background="@drawable/edittext_shaps"
+    android:padding="10dp">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       >
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:text="رقم الغرفة :- "
+           android:textSize="18dp"
+           android:layout_weight="1"
+           android:textColor="@color/black"
+           >
+
+       </TextView>
+       <TextView
+           android:layout_weight="1"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:text="1 "
+           android:id="@+id/user_show_date_roomnumber_recycler"
+           android:textSize="18dp"
+           android:textColor="@color/black"
+           >
+
+       </TextView>
+   </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="الوقت :- "
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="56 "
+            android:id="@+id/user_show_date_time_recycler"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

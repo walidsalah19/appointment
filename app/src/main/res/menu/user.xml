@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/user_calender_card"
+        android:title=" سجل المواعيد "
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        >
+    </item>
+    <item android:id="@+id/user_manage_card"
+        android:title=" إدارة البطاقه الصحية "
+        android:icon="@drawable/ic_baseline_credit_card_24"
+        >
+    </item>
+    <item android:id="@+id/user_logout"
+        android:title="  تسجيل الخروج"
+        android:icon="@drawable/ic_baseline_logout_24"
+        >
+    </item>
+</menu>

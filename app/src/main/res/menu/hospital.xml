@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/hospital_manage_doctors"
+        android:title="إدارة الموظفين"
+        android:icon="@drawable/ic_baseline_supervisor_account_24"
+        >
+    </item>
+    <item android:id="@+id/hospital_manage_clinics"
+        android:title="إدارة عيادات"
+        android:icon="@drawable/ic_baseline_manage_accounts_24"
+        >
+    </item>
+    <item android:id="@+id/hospital_logout"
+        android:title="تسجيل الخروج"
+        android:icon="@drawable/ic_baseline_logout_24"
+        >
+    </item>
+</menu>

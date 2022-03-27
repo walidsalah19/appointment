@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/doctor_date"
+        android:title="مواعيد المستخدمين"
+        android:icon="@drawable/ic_baseline_access_time_24"
+        >
+    </item>
+    <item android:id="@+id/doctor_logout"
+        android:title="تسجيل الخروج"
+        android:icon="@drawable/ic_baseline_logout_24"
+        >
+    </item>
+</menu>
