@@ -1,5 +1,6 @@
 package com.example.booking.doctor.adapter;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booking.R;
+import com.example.booking.data_class.dates_class;
 import com.example.booking.doctor.manage_dates;
 import com.example.booking.doctor.show_date_data;
 
 import java.util.ArrayList;
 
 public class show_dates_adapter extends RecyclerView.Adapter<show_dates_adapter.help> {
-    ArrayList<String> arrayList ;
+    ArrayList<dates_class> arrayList ;
     Fragment fragment;
 
-    public show_dates_adapter(ArrayList<String> arrayList, Fragment fragment) {
+    public show_dates_adapter(ArrayList<dates_class> arrayList, Fragment fragment) {
         this.arrayList = arrayList;
         this.fragment = fragment;
     }
@@ -35,10 +37,27 @@ public class show_dates_adapter extends RecyclerView.Adapter<show_dates_adapter.
 
     @Override
     public void onBindViewHolder(@NonNull help holder, int position) {
+        holder.name.setText(arrayList.get(position).getName());
+        holder.date.setText(arrayList.get(position).getAppointmentdata());
            holder.itemView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                   fragment.getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.doctor_framelayout,new manage_dates()).addToBackStack(null).commitAllowingStateLoss();
+                   Bundle b=new Bundle();
+                   b.putString("Appointmentid",arrayList.get(position).getAppointmentid());
+                   b.putString("p_id",arrayList.get(position).getPastionid());
+
+                   /*b.putString("name",arrayList.get(position).getName());
+                   b.putString("age",arrayList.get(position).getAge());
+                   b.putString("date",arrayList.get(position).getAppointmentdata());
+                   b.putString("time",arrayList.get(position).getAppointmenttime());
+                   b.putString("b_date",arrayList.get(position).getBookingdate());
+                   b.putString("clinic",arrayList.get(position).getClinicAddress());
+                   b.putString("doc_id",arrayList.get(position).getDoctoridid());
+                   b.putString("hos_id",arrayList.get(position).getHospitalid());
+                   b.putString("f_num",arrayList.get(position).getFile_number());*/
+                   manage_dates m=new manage_dates();
+                   m.setArguments(b);
+                   fragment.getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.doctor_framelayout,m).addToBackStack(null).commitAllowingStateLoss();
                }
            });
     }

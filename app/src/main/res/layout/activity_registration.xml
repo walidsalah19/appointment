@@ -49,7 +49,7 @@
                         android:drawablePadding="5dp"
                         android:ems="10"
                         android:hint="البريد الإلكتروني"
-                        android:inputType="textPersonName"
+                        android:inputType="textEmailAddress"
                         android:minHeight="48dp"
                         android:padding="10dp"
                         android:textColor="@color/black"
@@ -191,7 +191,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:id="@+id/return_to_login"
-                        android:text="Do you have account ?  Login"
+                        android:text=" هل تمتلك حساب ؟"
                         android:textColor="@android:color/black"
                         />
 

@@ -15,23 +15,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.booking.MainActivity;
 import com.example.booking.R;
+import com.example.booking.data_class.doctor_data;
 import com.example.booking.doctor.doctor_main_activity;
-import com.example.booking.hospital.hospital_main;
+import com.example.booking.doctor.get_doctor_id;
+import com.example.booking.hospital.adapters.doctor_recycler_adapter;
+import com.example.booking.hospital.hospital_activity;
+import com.example.booking.hospital.manage_doctors;
 import com.example.booking.user.main_user;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class login extends AppCompatActivity {
     private Button login;
@@ -83,8 +82,36 @@ public class login extends AppCompatActivity {
         }
        else
         {
-            login_to_account();
+           check_if_doctor();
         }
+    }
+    Boolean found=false;
+    private void check_if_doctor() {
+        database.collection("doctors").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful())
+                {
+                    for (QueryDocumentSnapshot snapshot:task.getResult())
+                    {
+                       String email_s=snapshot.get("email").toString();
+                       String password_s=snapshot.get("password").toString();
+                        if (email_s.equals(email.getText().toString()) &&password_s.equals(password.getText().toString()) ) {
+                            found=true;
+                            String id=snapshot.get("doctorid").toString();
+                            get_doctor_id.setDoc_id(id);
+                            startActivity(new Intent(login.this, doctor_main_activity.class));
+                            finish();
+                        }
+
+                    }
+                    if (!found) {
+                        login_to_account();
+                    }
+
+                }
+            }
+        });
     }
 
     private void login_to_account() {
@@ -111,12 +138,10 @@ public class login extends AppCompatActivity {
                         if (task.getResult().exists()) {
                             String type = task.getResult().get("user_type").toString();
                             if (type.equals("hospital")) {
-                                startActivity(new Intent(login.this, hospital_main.class));
+                                startActivity(new Intent(login.this, hospital_activity.class));
                             } else if (type.equals("user")) {
                                 startActivity(new Intent(login.this, main_user.class));
                             }
-                        } else {
-                            startActivity(new Intent(login.this, doctor_main_activity.class));
                         }
                     }
                 }

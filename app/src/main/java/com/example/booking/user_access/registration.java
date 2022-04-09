@@ -13,21 +13,16 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.booking.R;
 import com.example.booking.hospital.hospital_info;
-import com.example.booking.hospital.hospital_main;
-import com.example.booking.user.main_user;
 import com.example.booking.user.user_data_profile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -136,10 +131,12 @@ public class registration extends AppCompatActivity {
         if (user.equals("user"))
         {
             startActivity(new Intent(registration.this, user_data_profile.class));
+            finish();
         }
         else
         {
             startActivity(new Intent(registration.this, hospital_info.class));
+            finish();
         }
     }
     private void show_password_method() {
@@ -149,9 +146,11 @@ public class registration extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (show_password.isChecked()) {
                     password.setInputType(InputType.TYPE_CLASS_TEXT);
+                    conform.setInputType(InputType.TYPE_CLASS_TEXT);
                 }
                 else {
                     password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    conform.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
 
             }

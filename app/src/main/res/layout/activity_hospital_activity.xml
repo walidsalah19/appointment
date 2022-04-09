@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".hospital.hospital_main">
-<include android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    layout="@layout/hospital_main_containt">
-</include>
+    tools:context=".hospital.hospital_activity">
+    <include android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/hospital_main_containt">
+    </include>
 </androidx.constraintlayout.widget.ConstraintLayout>

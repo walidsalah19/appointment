@@ -13,28 +13,38 @@ import com.example.booking.R;
 import com.example.booking.user_access.login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class hospital_main extends AppCompatActivity {
-   private BottomNavigationView bottomnavigation;
-   private Toolbar toolbar;
+public class hospital_activity extends AppCompatActivity {
+
+    private BottomNavigationView navigationView;
+    private Toolbar toolbar;
+    private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hospital_main);
-        toolpar_intialize();
-        bottom_navigation_method();
+        setContentView(R.layout.activity_hospital_activity);
+        auth=FirebaseAuth.getInstance();
+        tool_bar();
+        navigation();
         move_fragment(new manage_doctors());
     }
-    private void toolpar_intialize() {
-        toolbar = findViewById(R.id.appbar);
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        chack_login();
+    }
+
+    private void tool_bar() {
+        toolbar=findViewById(R.id.appbar);
         setSupportActionBar(toolbar);
     }
-    private void bottom_navigation_method()
+    private void navigation()
     {
-        bottomnavigation=findViewById(R.id.hospital_bottomNavigationView);
-        bottomnavigation.inflateMenu(R.menu.hospital);
-        bottomnavigation.setSelectedItemId(0);
-        bottomnavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        navigationView=findViewById(R.id.hospital_bottomNavigationView);
+        navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(R.id.hospital_manage_doctors==item.getItemId())
@@ -47,7 +57,8 @@ public class hospital_main extends AppCompatActivity {
                 }
                 if(R.id.hospital_logout==item.getItemId())
                 {
-                    startActivity(new Intent(hospital_main.this, login.class));
+                    startActivity(new Intent(hospital_activity.this, login.class));
+                    finish();
                 }
 
                 return false;
@@ -58,4 +69,14 @@ public class hospital_main extends AppCompatActivity {
     {
         getSupportFragmentManager().beginTransaction().replace(R.id.hospital_framelayout,Fragment).addToBackStack(null).commitAllowingStateLoss();
     }
+    private void chack_login()
+    {
+        FirebaseUser user=auth.getCurrentUser();
+        if(user==null)
+        {
+            startActivity(new Intent(hospital_activity.this, login.class));
+            finish();
+        }
+    }
+
 }

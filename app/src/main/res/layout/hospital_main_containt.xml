@@ -18,11 +18,6 @@
         android:layout_below="@id/toolbar"
         android:background="@color/white"
         android:layout_above="@id/hospital_bottomNavigationView">
-        <include android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            layout="@layout/fragment_manage_doctors">
-        </include>
-
     </FrameLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/hospital_bottomNavigationView"
@@ -33,6 +28,7 @@
         app:itemTextColor="@color/black"
         app:itemIconTint="@color/color1"
         app:labelVisibilityMode="labeled"
+        app:menu="@menu/hospital"
 
         />
 </RelativeLayout>

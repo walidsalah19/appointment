@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Booking">
-        <activity android:name=".hospital.hospital_info"></activity>
+        <activity android:name=".hospital.hospital_activity"></activity>
+        <activity android:name=".hospital.hospital_info" />
         <activity android:name=".user_access.forget_password" />
         <activity android:name=".user.main_user" />
         <activity android:name=".doctor.doctor_main_activity" />
-        <activity android:name=".hospital.hospital_main" />
         <activity android:name=".user_access.registration" />
         <activity android:name=".user.user_data_profile" />
         <activity android:name=".user_access.login">

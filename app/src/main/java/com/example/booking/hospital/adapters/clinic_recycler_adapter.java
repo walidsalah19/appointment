@@ -11,15 +11,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booking.R;
+import com.example.booking.data_class.clinic_data;
 import com.example.booking.hospital.hospital_maintanance_clinic;
 
 import java.util.ArrayList;
 
 public class clinic_recycler_adapter extends RecyclerView.Adapter<clinic_recycler_adapter.help>{
-     ArrayList<String>arrayList;
+     ArrayList<clinic_data>arrayList;
      Fragment fragment;
 
-    public clinic_recycler_adapter(ArrayList<String> arrayList, Fragment fragment) {
+    public clinic_recycler_adapter(ArrayList<clinic_data> arrayList, Fragment fragment) {
         this.arrayList = arrayList;
         this.fragment = fragment;
     }
@@ -34,12 +35,13 @@ public class clinic_recycler_adapter extends RecyclerView.Adapter<clinic_recycle
 
     @Override
     public void onBindViewHolder(@NonNull help holder, int position) {
-        holder.name.setText(arrayList.get(position));
+        holder.name.setText(arrayList.get(position).getName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle b=new Bundle();
-                b.putString("name",arrayList.get(position));
+                b.putString("name",arrayList.get(position).getName());
+                b.putString("id",arrayList.get(position).getClinic_id());
                 hospital_maintanance_clinic main=new hospital_maintanance_clinic();
                 main.setArguments(b);
                 fragment.getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.hospital_framelayout,main).addToBackStack(null).commitAllowingStateLoss();

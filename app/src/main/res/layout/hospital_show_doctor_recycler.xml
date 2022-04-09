@@ -50,6 +50,7 @@
             android:text="موقع الغرفه "
             android:textColor="@color/black"
             android:textSize="18dp"
+            android:id="@+id/hospital_show_doctor_roomlocation_recycler"
             android:layout_weight="1"
             >
         </TextView>

@@ -1,22 +1,28 @@
 package com.example.booking.data_class;
 
 public class dates_class {
-    String name,age,clinic,doctor,hospital,file_number,time,date,room_number;
+    String name,age,clinicAddress,doctoridid,hospitalid,pastionid,appointmentdata,bookingdate,appointmenttime,appointmentid,file_number;
 
-    public dates_class(String name, String age, String clinic, String doctor, String hospital, String file_number, String time, String date,String room_number) {
+    public dates_class(String file_number,String name, String age, String clinicAddress, String doctoridid, String hospitalid, String pastionid, String appointmentdata, String bookingdate, String appointmenttime,String appointmentid) {
         this.name = name;
+        this.file_number=file_number;
         this.age = age;
-        this.clinic = clinic;
-        this.doctor = doctor;
-        this.hospital = hospital;
-        this.file_number = file_number;
-        this.time = time;
-        this.date = date;
-        this.room_number=room_number;
+        this.clinicAddress = clinicAddress;
+        this.doctoridid = doctoridid;
+        this.hospitalid = hospitalid;
+        this.pastionid = pastionid;
+        this.appointmentdata = appointmentdata;
+        this.bookingdate = bookingdate;
+        this.appointmenttime = appointmenttime;
+        this.appointmentid = appointmentid;
     }
 
-    public String getRoom_number() {
-        return room_number;
+    public String getFile_number() {
+        return file_number;
+    }
+
+    public String getAppointmentid() {
+        return appointmentid;
     }
 
     public String getName() {
@@ -27,27 +33,31 @@ public class dates_class {
         return age;
     }
 
-    public String getClinic() {
-        return clinic;
+    public String getClinicAddress() {
+        return clinicAddress;
     }
 
-    public String getDoctor() {
-        return doctor;
+    public String getDoctoridid() {
+        return doctoridid;
     }
 
-    public String getHospital() {
-        return hospital;
+    public String getHospitalid() {
+        return hospitalid;
     }
 
-    public String getFile_number() {
-        return file_number;
+    public String getPastionid() {
+        return pastionid;
     }
 
-    public String getTime() {
-        return time;
+    public String getAppointmentdata() {
+        return appointmentdata;
     }
 
-    public String getDate() {
-        return date;
+    public String getBookingdate() {
+        return bookingdate;
+    }
+
+    public String getAppointmenttime() {
+        return appointmenttime;
     }
 }

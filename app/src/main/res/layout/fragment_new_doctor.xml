@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".hospital.add_new_doctor">
+    tools:context=".hospital.new_doctor">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:background="@color/white"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -31,6 +32,7 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="اسم االطبيب"
+                android:id="@+id/hospital_add_doctor_name_"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -53,6 +55,8 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="رقم الغرفة"
+                android:inputType="number"
+                android:id="@+id/hospital_add_doctor_room_number_"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -74,7 +78,8 @@
                 android:textColor="@color/black"
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
-                android:hint="8"
+                android:hint="ساعات العمل"
+                android:id="@+id/hospital_add_doctor_hour_"
                 android:inputType="number"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
@@ -92,14 +97,14 @@
                 >
             </TextView>
             <Spinner
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:layout_width="match_parent"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:padding="5dp"
-                android:id="@+id/hospital_add_doctor_clinic"
+                android:id="@+id/hospital_add_doctor_clinic_"
                 android:background="@drawable/edittext_shaps"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -118,6 +123,7 @@
                 android:textSize="16dp"
                 android:hint="موقع الغرفه"
                 android:inputType="text"
+                android:id="@+id/hospital_add_doctor_room_location_"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -140,6 +146,7 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="البريد الالكتروني"
+                android:id="@+id/hospital_add_doctor_email_"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
@@ -162,6 +169,7 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="كلمة المرور"
+                android:id="@+id/hospital_add_doctor_password_"
                 android:inputType="textPassword"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
@@ -170,19 +178,21 @@
                 >
             </EditText>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    android:text="إضافة"
-                    android:layout_marginTop="20dp"
-                    android:textSize="18dp"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:background="@color/color1"
-                    android:layout_weight="1"
-                    >
-                </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:text="إضافة"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="18dp"
+                android:id="@+id/hospital_add_doctor_data_"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:background="@color/color1"
+                android:layout_weight="1"
+
+                >
+            </androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
 </FrameLayout>

@@ -30,6 +30,7 @@
                 android:textColor="@color/black"
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
+                android:id="@+id/hospital_maintan_doctor_name"
                 android:hint="اسم االطبيب"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
@@ -53,6 +54,8 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="رقم الغرفة"
+                android:id="@+id/hospital_maintan_doctor_roomnumber"
+                android:inputType="number"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -76,6 +79,7 @@
                 android:textSize="16dp"
                 android:hint="6"
                 android:inputType="number"
+                android:id="@+id/hospital_maintan_doctor_hour"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -99,6 +103,7 @@
                 android:textSize="16dp"
                 android:hint=" العيادة"
                 android:inputType="text"
+                android:id="@+id/hospital_maintan_doctor_clinic"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -121,6 +126,7 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="موقع الغرفه"
+                android:id="@+id/hospital_maintan_doctor_r_location"
                 android:inputType="text"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
@@ -141,6 +147,7 @@
                     android:textSize="18dp"
                     android:textColor="@color/white"
                     android:background="@color/color1"
+                    android:id="@+id/hospital_delete_doctor"
                     android:layout_weight="1"
                     >
                 </androidx.appcompat.widget.AppCompatButton>
@@ -152,6 +159,7 @@
                     android:layout_margin="10dp"
                     android:textColor="@color/white"
                     android:background="@color/color1"
+                    android:id="@+id/hospital_maintan_doctor_data"
                     android:layout_weight="1"
                     >
                 </androidx.appcompat.widget.AppCompatButton>

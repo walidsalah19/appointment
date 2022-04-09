@@ -10,9 +10,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.booking.R;
-import com.example.booking.hospital.hospital_main;
-import com.example.booking.hospital.manage_clinic;
-import com.example.booking.hospital.manage_doctors;
 import com.example.booking.user_access.login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -46,8 +43,10 @@ public class doctor_main_activity extends AppCompatActivity {
                 if(R.id.doctor_logout==item.getItemId())
                 {
                     startActivity(new Intent(doctor_main_activity.this, login.class));
+                    finish();
+                    isDestroyed();
                 }
-
+ 
                 return false;
             }
         });
