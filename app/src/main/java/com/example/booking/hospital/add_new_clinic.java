@@ -69,8 +69,8 @@ public class add_new_clinic extends Fragment {
     private void add_to_database() {
         String user_id = auth.getCurrentUser().getUid().toString();
         String clinic_id = UUID.randomUUID().toString();
-        clinic_data data=new clinic_data(clinic.getText().toString(),clinic_id);
-        database.collection("hospital").document(user_id).collection("clinic").document(clinic_id).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+        clinic_data data=new clinic_data(clinic.getText().toString(),clinic_id,user_id);
+        database.collection("clinic").document(clinic_id).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())

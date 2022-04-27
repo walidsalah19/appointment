@@ -1,20 +1,21 @@
 package com.example.booking.data_class;
 
 public class dates_class {
-    String name,age,clinicAddress,doctoridid,hospitalid,pastionid,appointmentdata,bookingdate,appointmenttime,appointmentid,file_number;
+    String name,age,clinicAddress,doctorid,hospitalid,patienid,appointmentdata,bookingdate,appointmenttime,appointmentid,file_number;
 
-    public dates_class(String file_number,String name, String age, String clinicAddress, String doctoridid, String hospitalid, String pastionid, String appointmentdata, String bookingdate, String appointmenttime,String appointmentid) {
+
+    public dates_class(String name, String age, String clinicAddress, String doctorid, String hospitalid, String patienid, String appointmentdata, String bookingdate, String appointmenttime, String appointmentid, String file_number) {
         this.name = name;
-        this.file_number=file_number;
         this.age = age;
         this.clinicAddress = clinicAddress;
-        this.doctoridid = doctoridid;
+        this.doctorid = doctorid;
         this.hospitalid = hospitalid;
-        this.pastionid = pastionid;
+        this.patienid = patienid;
         this.appointmentdata = appointmentdata;
         this.bookingdate = bookingdate;
         this.appointmenttime = appointmenttime;
         this.appointmentid = appointmentid;
+        this.file_number = file_number;
     }
 
     public String getFile_number() {
@@ -37,16 +38,16 @@ public class dates_class {
         return clinicAddress;
     }
 
-    public String getDoctoridid() {
-        return doctoridid;
+    public String getDoctorid() {
+        return doctorid;
     }
 
     public String getHospitalid() {
         return hospitalid;
     }
 
-    public String getPastionid() {
-        return pastionid;
+    public String getPationid() {
+        return patienid;
     }
 
     public String getAppointmentdata() {

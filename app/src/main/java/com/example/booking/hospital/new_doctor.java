@@ -105,6 +105,10 @@ public class new_doctor extends Fragment {
         {
             password.setError("من فضلك أضف كلمة المرور");
         }
+        else if (doctor_clinic.getSelectedItem().toString().equals("اختر عيادة"))
+        {
+            password.setError("من فضلك اختر عيادة");
+        }
         else
         {
            add_d_to_databse(UUID.randomUUID().toString());
@@ -139,15 +143,18 @@ public class new_doctor extends Fragment {
 
     }
     private void get_clinic_databases(){
-        database.collection("hospital").document(h_id).collection("clinic").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        clinic.add("اختر عيادة");
+        database.collection("clinic").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful())
                 {
                     for (QueryDocumentSnapshot snapshot:task.getResult())
                     {
-                        clinic.add(snapshot.get("name").toString());
-
+                        String id=snapshot.get("hospital_id").toString();
+                        if(h_id.equals(id)) {
+                            clinic.add(snapshot.get("name").toString());
+                        }
                     }
                     ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), R.layout.spinner_item, clinic);
                     doctor_clinic.setAdapter(dataAdapter);

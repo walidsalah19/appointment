@@ -42,6 +42,7 @@ public class clinic_recycler_adapter extends RecyclerView.Adapter<clinic_recycle
                 Bundle b=new Bundle();
                 b.putString("name",arrayList.get(position).getName());
                 b.putString("id",arrayList.get(position).getClinic_id());
+
                 hospital_maintanance_clinic main=new hospital_maintanance_clinic();
                 main.setArguments(b);
                 fragment.getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.hospital_framelayout,main).addToBackStack(null).commitAllowingStateLoss();

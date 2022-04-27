@@ -56,7 +56,7 @@ public class hospital_maintanance_clinic extends Fragment {
     }
 
     private void delee_database() {
-        database.collection("hospital").document(h_id).collection("clinic").document(clinic_id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.collection("clinic").document(clinic_id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
@@ -109,8 +109,8 @@ public class hospital_maintanance_clinic extends Fragment {
         }
         else
         {
-            clinic_data data=new clinic_data(clinic.getText().toString(),clinic_id);
-            database.collection("hospital").document(h_id).collection("clinic").document(clinic_id).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+            clinic_data data=new clinic_data(clinic.getText().toString(),clinic_id,h_id);
+            database.collection("clinic").document(clinic_id).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                if (task.isSuccessful())

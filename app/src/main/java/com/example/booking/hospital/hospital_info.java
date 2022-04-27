@@ -78,7 +78,7 @@ public class hospital_info extends AppCompatActivity {
         map.put("name",name.getText().toString());
         map.put("address",address.getText().toString());
         map.put("phone",phone.getText().toString());
-        database.collection("users").document(h_id).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.collection("hospital").document(h_id).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -27,10 +28,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class login extends AppCompatActivity {
     private Button login;
@@ -38,15 +42,28 @@ public class login extends AppCompatActivity {
     private TextView registration ,forget_password_tex;
     private FirebaseFirestore database;
     private FirebaseAuth auth;
+    private  SweetAlertDialog  pDialogLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        sweetalert();
         Firebase_tool();
     login_method();
     registration_method();
     forget_passeord();
     show_password_method();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        sweetalert();
+        FirebaseUser user=auth.getCurrentUser();
+        if (user !=null)
+        {
+           check_user_type (user.getUid().toString());
+        }
     }
 
     private void forget_passeord() {
@@ -129,21 +146,31 @@ public class login extends AppCompatActivity {
               }
           });
     }
+    private void sweetalert()
+    {
+        pDialogLoading = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialogLoading.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialogLoading.setTitleText("sign in ");
+        pDialogLoading.setCancelable(false);
+    }
     private void check_user_type(String user_id) {
-            database.collection("users").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+
+        pDialogLoading.show();
+            database.collection("hospital").document(user_id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                     if (task.isSuccessful()) {
                         if (task.getResult().exists()) {
-                            String type = task.getResult().get("user_type").toString();
-                            if (type.equals("hospital")) {
+                          pDialogLoading.dismiss();
                                 startActivity(new Intent(login.this, hospital_activity.class));
-                            } else if (type.equals("user")) {
-                                startActivity(new Intent(login.this, main_user.class));
-                            }
+                        }
+                        else{
+                            pDialogLoading.dismiss();
+                            startActivity(new Intent(login.this, main_user.class));
                         }
                     }
+
                 }
             });
     }

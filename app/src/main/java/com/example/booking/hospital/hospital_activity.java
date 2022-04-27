@@ -26,7 +26,7 @@ public class hospital_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospital_activity);
         auth=FirebaseAuth.getInstance();
-        tool_bar();
+        //tool_bar();
         navigation();
         move_fragment(new manage_doctors());
     }
@@ -57,6 +57,8 @@ public class hospital_activity extends AppCompatActivity {
                 }
                 if(R.id.hospital_logout==item.getItemId())
                 {
+                    FirebaseAuth auth=FirebaseAuth.getInstance();
+                    auth.signOut();
                     startActivity(new Intent(hospital_activity.this, login.class));
                     finish();
                 }

@@ -48,8 +48,6 @@ public class doctore_show_dates extends Fragment {
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         arrayList=new ArrayList<dates_class>();
         get_firebase_data();
-
-
     }
     private void get_firebase_data() {
          database=FirebaseFirestore.getInstance();
@@ -64,9 +62,9 @@ public class doctore_show_dates extends Fragment {
                           String id=snapshot.get("doctorid").toString();
                           if (doc_id.equals(id))
                           {
-                              dates_class date=new dates_class(snapshot.get("file_number").toString(),snapshot.get("name").toString(),snapshot.get("age").toString(),snapshot.get("clinicAddress").toString()
-                              ,id,snapshot.get("hospitalid").toString(),snapshot.get("pastionid").toString(),snapshot.get("appointmentdata").toString(),
-                                      snapshot.get("bookingdate").toString(),snapshot.get("appointmenttime").toString(),snapshot.get("appointmentid").toString());
+                              dates_class date=new dates_class(snapshot.get("name").toString(),snapshot.get("age").toString(),snapshot.get("clinicAddress").toString()
+                              ,id,snapshot.get("hospitalid").toString(),snapshot.get("pationid").toString(),snapshot.get("appointmentdata").toString(),
+                                      snapshot.get("bookingdate").toString(),snapshot.get("appointmenttime").toString(),snapshot.get("appointmentid").toString(),snapshot.get("file_number").toString());
                           arrayList.add(date);
 
                           }

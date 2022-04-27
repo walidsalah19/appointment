@@ -33,13 +33,10 @@ public class manage_dates extends Fragment {
     }
 
     private void show_cards(View v) {
-        String p_id=getArguments().getString("p_id");
         Button card=v.findViewById(R.id.button_show_card);
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle b=new Bundle();
-                b.putString("p_id",p_id);
                 show_card_data s=new show_card_data();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.doctor_framelayout,s).addToBackStack(null).commitAllowingStateLoss();
             }
@@ -47,13 +44,10 @@ public class manage_dates extends Fragment {
     }
 
     private void show_dates(View v) {
-        String a_id=getArguments().getString("Appointmentid");
         Button card=v.findViewById(R.id.button_show_dates_data);
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle b=new Bundle();
-                b.putString("Appointmentid",a_id);
                 show_date_data s=new show_date_data();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.doctor_framelayout,s).addToBackStack(null).commitAllowingStateLoss();
             }

@@ -72,15 +72,18 @@ public class manage_clinic extends Fragment {
     }
     private void get_clinic_databases(){
         String h_id=auth.getCurrentUser().getUid().toString();
-        database.collection("hospital").document(h_id).collection("clinic").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        database.collection("clinic").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                if (task.isSuccessful())
                {
                    for (QueryDocumentSnapshot snapshot:task.getResult())
                    {
-                         clinic_data data=new clinic_data(snapshot.get("name").toString(),snapshot.get("clinic_id").toString());
-                         arrayList.add(data);
+                       String id=snapshot.get("hospital_id").toString();
+                       if(h_id.equals(id)) {
+                           clinic_data data = new clinic_data(snapshot.get("name").toString(), snapshot.get("clinic_id").toString(), snapshot.get("hospital_id").toString());
+                           arrayList.add(data);
+                       }
 
                    }
                    clinic_recycler_adapter adapter=new clinic_recycler_adapter(arrayList,manage_clinic.this);

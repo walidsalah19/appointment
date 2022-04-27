@@ -24,19 +24,16 @@
                 android:layout_margin="10dp"
                 >
             </TextView>
-            <EditText
-                android:layout_width="match_parent"
+            <Spinner
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:background="@drawable/edittext_shaps"
-                android:textSize="16dp"
-                android:hint="مستشفي "
-                android:textColorHint="@color/black"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:padding="10dp"
-                >
-            </EditText>
+                android:layout_width="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:id="@+id/user_booking_data_hospital"
+                android:background="@drawable/edittext_shaps"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -47,20 +44,17 @@
                 android:layout_margin="10dp"
                 >
             </TextView>
-            <EditText
-                android:layout_width="match_parent"
+            <Spinner
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:background="@drawable/edittext_shaps"
-                android:textSize="16dp"
-                android:hint=" العيادة"
-                android:inputType="text"
-                android:textColorHint="@color/black"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:padding="10dp"
-                >
-            </EditText>
+                android:layout_width="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:id="@+id/user_booking_data_clinic"
+                android:background="@drawable/edittext_shaps"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,20 +64,17 @@
                 android:layout_margin="10dp"
                 >
             </TextView>
-            <EditText
-                android:layout_width="match_parent"
+            <Spinner
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:background="@drawable/edittext_shaps"
-                android:textSize="16dp"
-                android:hint="اسم الطبيب"
-                android:inputType="text"
-                android:textColorHint="@color/black"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:padding="10dp"
-                >
-            </EditText>
+                android:layout_width="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:id="@+id/user_booking_data_doctor"
+                android:background="@drawable/edittext_shaps"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,20 +84,37 @@
                 android:layout_margin="10dp"
                 >
             </TextView>
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/edittext_shaps"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            >
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
-                android:hint="1/10/2020"
-                android:inputType="date"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:id="@+id/user_booking_data_date"
+                android:inputType="text"
                 android:textColorHint="@color/black"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"
                 >
             </EditText>
+            <TextView
+                android:id="@+id/date_picker"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:background="@color/color1"
+                >
+            </TextView>
+        </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,20 +124,39 @@
                 android:layout_margin="10dp"
                 >
             </TextView>
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_shaps"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                >
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
-                android:hint="6.55"
-                android:inputType="time"
+                android:id="@+id/user_booking_data_time"
+                android:inputType="text"
+                android:enabled="false"
+                android:layout_weight="1"
                 android:textColorHint="@color/black"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"
                 >
             </EditText>
+                <TextView
+                    android:id="@+id/time_picker"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:background="@color/color1"
+                    >
+                </TextView>
+            </LinearLayout>
+
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,7 +165,7 @@
                 android:background="@color/color1"
                 android:textSize="18dp"
                 android:layout_margin="20dp"
-                android:id="@+id/user_booking"
+                android:id="@+id/user_booking_date"
                 >
             </androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>

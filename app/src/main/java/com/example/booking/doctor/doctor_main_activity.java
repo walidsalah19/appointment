@@ -21,7 +21,7 @@ public class doctor_main_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_main_activity);
-        toolpar_intialize();
+        //toolpar_intialize();
         bottom_navigation_method();
         move_fragment(new doctore_show_dates());
     }

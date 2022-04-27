@@ -99,7 +99,7 @@ public class registration extends AppCompatActivity {
     private void check_user_type() {
         if (user.isChecked())
         {
-            add_to_database("user");
+            add_to_database("patient");
         }
         else if(hospital.isChecked())
         {
@@ -111,7 +111,7 @@ public class registration extends AppCompatActivity {
         HashMap<String, String> user_map=new HashMap<>();
         user_map.put("email",email.getText().toString());
         user_map.put("user_type",user);
-        database.collection("users").document(user_id).set(user_map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.collection(user).document(user_id).set(user_map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
@@ -128,7 +128,7 @@ public class registration extends AppCompatActivity {
     }
 
     private void go_to_activity(String user) {
-        if (user.equals("user"))
+        if (user.equals("patient"))
         {
             startActivity(new Intent(registration.this, user_data_profile.class));
             finish();

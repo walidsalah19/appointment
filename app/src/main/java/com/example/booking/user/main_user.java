@@ -10,12 +10,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.booking.R;
-import com.example.booking.doctor.doctor_main_activity;
-import com.example.booking.doctor.doctor_show_cards;
-import com.example.booking.doctor.doctore_show_dates;
 import com.example.booking.user_access.login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class main_user extends AppCompatActivity {
     private BottomNavigationView bottomnavigation;
@@ -25,7 +23,7 @@ public class main_user extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_user);
         move_fragment(new show_date());
-        toolpar_intialize();
+        //toolpar_intialize();
         bottom_navigation_method();
 
     }
@@ -49,6 +47,8 @@ public class main_user extends AppCompatActivity {
                 }
                 if(R.id.user_logout==item.getItemId())
                 {
+                    FirebaseAuth auth=FirebaseAuth.getInstance();
+                    auth.signOut();
                     startActivity(new Intent(main_user.this, login.class));
                 }
 

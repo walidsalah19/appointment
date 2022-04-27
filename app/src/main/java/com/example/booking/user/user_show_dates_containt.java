@@ -2,65 +2,82 @@ package com.example.booking.user;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.booking.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link user_show_dates_containt#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class user_show_dates_containt extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public user_show_dates_containt() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment user_show_dates_containt.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static user_show_dates_containt newInstance(String param1, String param2) {
-        user_show_dates_containt fragment = new user_show_dates_containt();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    private String hospitalid,clinicid,doctorid;
+    private TextView hospital,clinic,doctor,date,time,booking;
+    private FirebaseFirestore database;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_show_dates_containt, container, false);
+        View v= inflater.inflate(R.layout.fragment_user_show_dates_containt, container, false);
+
+        database=FirebaseFirestore.getInstance();
+        intalize(v);
+        get_hospital_name();
+        get_doctor_name();
+        return v;
     }
+
+    private void get_doctor_name() {
+        doctorid=getArguments().getString("doctorid");
+        database.collection("doctors").document(doctorid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                doctor.setText( task.getResult().get("name").toString());
+            }
+        });
+
+    }
+
+    private void get_hospital_name() {
+        hospitalid=getArguments().getString("hospitalid");
+         database.collection("hospital").document(hospitalid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+             @Override
+             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                 hospital.setText(   task.getResult().get("name").toString());
+             }
+         });
+
+    }
+
+    private void intalize(View v)
+    {
+        hospital=v.findViewById(R.id.user_show_data_hospital_);
+        clinic=v.findViewById(R.id.user_show_data_clinic);
+        doctor=v.findViewById(R.id.user_show_data_doctor);
+        date=v.findViewById(R.id.user_show_data_date);
+        time=v.findViewById(R.id.user_show_data_time);
+        booking=v.findViewById(R.id.user_show_data_booking_);
+
+
+       clinic.setText(getArguments().getString("clinicAddress"));
+        date.setText(getArguments().getString("appointmentdata"));
+        time.setText(getArguments().getString("appointmenttime"));
+        booking.setText(getArguments().getString("bookingdate"));
+    }
+
+
 }

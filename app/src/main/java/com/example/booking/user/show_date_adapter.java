@@ -1,5 +1,6 @@
 package com.example.booking.user;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,12 +33,26 @@ public class show_date_adapter extends RecyclerView.Adapter<show_date_adapter.he
 
     @Override
     public void onBindViewHolder(@NonNull helper holder, int position) {
-      holder.room_number.setText(arr.get(position).getRoom_number());
-      holder.time.setText(arr.get(position).getTime());
+      holder.room_number.setText(arr.get(position).getName());
+      holder.time.setText(arr.get(position).getAppointmentdata());
       holder.itemView.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              fragment.getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.user_framelayout,new user_show_dates_containt()).addToBackStack(null).commitAllowingStateLoss();
+              Bundle b=new Bundle();
+              b.putString("name",arr.get(position).getName());
+              b.putString("age",arr.get(position).getAge());
+              b.putString("clinicAddress",arr.get(position).getClinicAddress());
+              b.putString("doctorid",arr.get(position).getDoctorid());
+              b.putString("hospitalid",arr.get(position).getHospitalid());
+              b.putString("pastionid",arr.get(position).getPationid());
+              b.putString("appointmentdata",arr.get(position).getAppointmentdata());
+              b.putString("bookingdate",arr.get(position).getBookingdate());
+              b.putString("appointmenttime",arr.get(position).getAppointmenttime());
+              b.putString("appointmentid",arr.get(position).getAppointmentid());
+              b.putString("file_number",arr.get(position).getFile_number());
+              user_show_dates_containt s=new user_show_dates_containt();
+              s.setArguments(b);
+              fragment.getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.user_framelayout,s).addToBackStack(null).commitAllowingStateLoss();
           }
       });
     }

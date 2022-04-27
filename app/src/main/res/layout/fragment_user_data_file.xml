@@ -30,6 +30,7 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="الاسم "
+                android:id="@+id/user_proifle_name"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -45,22 +46,22 @@
                 android:layout_margin="10dp"
                 >
             </TextView>
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="العمر"
-                android:textSize="18dp"
-                android:textColor="@color/white"
-                android:gravity="center"
+                android:textColor="@color/black"
+                android:background="@drawable/edittext_shaps"
+                android:textSize="16dp"
+                android:hint="22"
+                android:id="@+id/user_profile_birthday"
+                android:inputType="number"
+                android:textColorHint="@color/black"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:padding="10dp"
-                android:id="@+id/user_set_age_profile"
-                android:background="@color/color1"
-                android:layout_gravity="end"
-                android:layout_marginEnd="30dp"
-                android:layout_marginStart="30dp"
                 >
-            </TextView>
+            </EditText>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,6 +78,7 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="87878787897"
+                android:id="@+id/user_proifle_id"
                 android:inputType="number"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
@@ -94,7 +96,7 @@
                 >
             </TextView>
             <Spinner
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
@@ -113,7 +115,7 @@
                 >
             </TextView>
             <Spinner
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
@@ -132,20 +134,39 @@
                 android:layout_margin="10dp"
                 >
             </TextView>
-            <EditText
+             <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/edittext_shaps"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            >
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
-                android:hint="1/9/2022"
-                android:inputType="date"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:id="@+id/user_set_age_profile"
+                android:inputType="text"
                 android:textColorHint="@color/black"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"
                 >
-            </EditText>
+            </TextView>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:padding="10dp"
+                android:id="@+id/user_date_picker_profile"
+                android:background="@color/color1"
+                >
+            </TextView>
+             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -163,6 +184,7 @@
                 android:textSize="16dp"
                 android:hint="أعراض نادرة"
                 android:inputType="text"
+                android:id="@+id/user_profile_desicess"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
@@ -184,6 +206,7 @@
                 android:background="@drawable/edittext_shaps"
                 android:textSize="16dp"
                 android:hint="010000000000"
+                android:id="@+id/user_profile_phone"
                 android:inputType="phone"
                 android:textColorHint="@color/black"
                 android:layout_marginRight="10dp"

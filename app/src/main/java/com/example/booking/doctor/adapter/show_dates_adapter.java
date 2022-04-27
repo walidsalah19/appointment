@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.booking.R;
 import com.example.booking.data_class.dates_class;
 import com.example.booking.doctor.manage_dates;
-import com.example.booking.doctor.show_date_data;
+import com.example.booking.data_class.move_data;
 
 import java.util.ArrayList;
 
@@ -31,7 +30,6 @@ public class show_dates_adapter extends RecyclerView.Adapter<show_dates_adapter.
     @Override
     public help onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v=LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_show_dates, parent, false);
-
         return new help(v) ;
     }
 
@@ -43,9 +41,8 @@ public class show_dates_adapter extends RecyclerView.Adapter<show_dates_adapter.
                @Override
                public void onClick(View v) {
                    Bundle b=new Bundle();
-                   b.putString("Appointmentid",arrayList.get(position).getAppointmentid());
-                   b.putString("p_id",arrayList.get(position).getPastionid());
-
+                   move_data.setAppointmentid(arrayList.get(position).getAppointmentid());
+                   move_data.setP_id(arrayList.get(position).getPationid());
                    /*b.putString("name",arrayList.get(position).getName());
                    b.putString("age",arrayList.get(position).getAge());
                    b.putString("date",arrayList.get(position).getAppointmentdata());
